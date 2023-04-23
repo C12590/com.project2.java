@@ -5,11 +5,12 @@ public class Account {
     private double balance;
     private double annualInterestRate;
 
-    public Account ( int id, double balance, double annualInterestRate )
+    public Account(int id, double balance, double annualInterestRate) {
         this.id = id;
         this.balance = balance;
         this.annualInterestRate = annualInterestRate;
-}
+    }
+
     public int getId() {
         return id;
     }
@@ -27,7 +28,7 @@ public class Account {
     }
 
     public double getAnnualInterestRate() {
-        return  annualInterestRate;
+        return annualInterestRate;
     }
 
     public void setAnnualInterestRate(double annualInterestRate) {
@@ -35,10 +36,18 @@ public class Account {
     }
 
     public void withdraw(double amount) { //取钱
-        if(balance < amount) {
-            System.out.println(余额不足，请充值);
+        if (balance < amount) {
+            System.out.println("余额不足，请充值");
             return;
         }
         balance -= amount;
-            System.out.print("取錢成功，" + amount);
+        System.out.println("取錢成功，" + amount);
     }
+
+    public void deposit(double amount) { //存钱
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("成功存入，" + amount);
+        }
+    }
+}
